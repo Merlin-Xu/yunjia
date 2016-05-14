@@ -1,0 +1,16 @@
+{	
+	ChekinDate:'2016-05-02',
+	CheckoutDate:'2016-05-03',
+	BookingCount：'1',
+	PeopleCount:'2',
+	HouseID:'26',
+	IsInvoices:"Y",
+	InvoiceName:"aaa",
+	InvoicesReceiver:"aaaaa",
+	UserDetails:{
+		UserName:"小嘻嘻",
+		UserMobile:"158472761234",
+		UserMail:"xuwenfei886@gmail.com",
+	}
+
+}

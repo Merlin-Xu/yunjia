@@ -1,0 +1,16 @@
+{
+  "name": "blueskeleton",
+  "version": "1.0.0",
+  "description": "A site for rent a apartment",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test.js"
+  },
+  "author": "Xu",
+  "license": "MIT"
+}

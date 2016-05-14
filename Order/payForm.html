@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet/less" type="text/css" href="order.less" />
+        <link rel="stylesheet" href="/bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+        <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/commonjs/jquerytimer.js"></script>
+        <!-- set options before less.js script -->
+        <script>
+        less = {
+        env: "development", // or "production"
+        async: false,       // load imports async
+        fileAsync: false,   // load imports async when in a page under
+        // a file protocol
+        poll: 1000,         // when in watch mode, time in ms between polls
+        functions: {},      // user functions, keyed by name
+        dumpLineNumbers: "all", // "comment" or "mediaQuery" or "all"
+        relativeUrls: false,// whether to adjust url's to be relative
+        // if false, url's are already relative to the
+        // entry less file
+        rootpath: ":/"// a path to add on to the start of every url
+        //resource
+        };
+        </script>
+        <script src="../less.min.js" type="text/javascript"></script>
+        <script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+        less.watch();
+        $(function(){
+        $("#datepicker,#datepicker1").datepicker();
+        var date = new Date();
+        date.setMinutes(date.getMinutes()+30);
+        $(".timerCounter").text(date.getHours()+":"+date.getMinutes());
+        $(".digits").countdown({
+        image: "/Images/digits.png",
+        format: "mm:ss",
+        stepTime: 60,
+        format: 'mm:ss',
+        startTime: "30:00",
+        digitImages: 6,
+        timerEnd: function() { alert('end!!'); }
+        });
+        $.get( "/json/payOrder.json", function( data ) {
+        console.log(data.responseText);
+        },"text")
+        .done(function( data ) {
+        var orderDetails = eval('(' + data + ')');
+        $("#dateFrom i").text(orderDetails.ChekinDate);
+        var dFrom = new Date(Date.parse(orderDetails.ChekinDate.replace(/-/g,   "/")));
+        $("#dateFrom i").text(orderDetails.ChekinDate);
+        var dTo = new Date(Date.parse(orderDetails.CheckoutDate.replace(/-/g,   "/")));
+        var week = ['日','一','二','三','四','五','六'];
+        // debugger;
+        $(".week-box i:eq(0)").text(week[dFrom.getDay()]);
+        $(".week-box i:eq(1)").text(week[dTo.getDay()]);
+        $("#dateFrom i").text(orderDetails.ChekinDate);
+        $("#dateTo i").text(orderDetails.CheckoutDate);
+        $("#orderInfo").text(orderDetails.OrderID);
+        $("#payInfo i").text(orderDetails.BookingTotalAmount);
+        $("#bookInfo i").text(orderDetails.BookingCount);
+        $("#roomInfo i").text(orderDetails.PeopleCount);
+        });
+        /*$.ajax({
+        method: "GET",
+        url: "/json/payOrder.json",
+        dataType: "text",
+        data: ''
+        })
+        .done(function( data ) {
+        debugger;
+        console.log( "Data Saved: " + data );
+        });*/
+        });
+        
+        </script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-6  .col-md-offset-3 col-sm-offset-6 col-xs-offset-6">
+                <div class="m-step-no3">
+                    <div class="m-step">
+                        <ul class="cols3">
+                            <li class="step1"><span class="s-num">1</span><span class="s-text">提交订单</span></li>
+                            <li class="step3"><span class="s-num">2</span><span class="s-text">支付订金</span></li>
+                            <li class="step4"><span class="s-num">3</span><span class="s-text">预订成功</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="m-wrap" id="sidebar-wrap">
+                        <div class="status-cont">
+                            <div class="order-status success-box col-md-4 col-sm-4 col-xs-4">
+                                <i class="icon-status"></i>
+                                <div class="info-box">
+                                    
+                                    <h2>感谢预订，请尽快支付订金。</h2>
+                                    
+                                    <p>请在<span class="hlt-text timerCounter"></span>前完成支付，避免订单超时失效。</p>
+                                </div>
+                            </div>
+                            <div class="listing-info progress-box col-md-8 col-sm-8 col-xs-8">
+                                <div class="state-box ">
+                                    <div class="user-box col-md-2 col-sm-2 col-xs-2">
+                                        <span class="photo-box">
+                                            
+                                            <img src="http://staticfile.tujia.com/BookingSite/images/user-default.png" alt=" " class="photo-img" width="66" height="66">
+                                            
+                                            
+                                        </span>
+                                        <p class="text-box">
+                                            <b class="name-box">房客</b>
+                                        </p>
+                                    </div>
+                                    <div class="line-box col-md-5 col-sm-5 col-xs-5">
+                                        <i class="line"></i>
+                                        <span class="date-box">剩余支付时间：
+                                            
+                                            <i class="icon-time"></i>
+                                            <div class="wrapper"><div class="digits"></div></div>
+                                        </span>
+                                    </div>
+                                    <div class="listing-box col-md-2 col-sm-2 col-xs-2">
+                                        <span class="photo-box">
+                                            
+                                            <img src="http://staticfile.tujia.com/upload/hotelmanagementcompanylogo/day_140910/201409100930588832.jpg" alt=" " class="photo-img" width="66" height="66">
+                                            
+                                            
+                                        </span>
+                                        <p class="text-box">
+                                            <b class="name-box">房东</b>
+                                            <br>
+                                            
+                                            <a href="javascript:;" onclick="qimoChatClick(); return false;" class="link-btn">在线客服</a>
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: left"></div>
+                            <div class="orede-info-cont ">
+                                <ul>
+                                    <li class="first-box">
+                                        <div class="info-item ">订单编号：<span class="order-number " id="orderInfo"></span></div>
+                                        <div class="info-item">三亚途家大东海两室经典园景双卧套房（宜住4人，2张床）</div>
+                                        <div class="info-item ">
+                                            <span class="date-box" id="dateFrom"><i></i></span>&nbsp;<span class="week-box">星期<i></i></span>&nbsp;<span class="label-text">至</span>&nbsp;
+                                            <span class="date-box" id="dateTo"><i></i></span>&nbsp;<span class="week-box">星期<i></i></span>&nbsp;
+                                            <span class="booking-info" id="bookInfo">入住<i></i>晚</span>&nbsp;<span class="room-number" id="roomInfo"><i></i>间房</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="orede-info-cont ">
+                                <ul>
+                                    <li class="first-box">
+                                        <div class="info-item ">订单金额：<span class="order-pay " id="payInfo"><i></i>元</span></div>
+                                        <!-- <div class="info-item">三亚途家大东海两室经典园景双卧套房（宜住4人，2张床）</div> -->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row start -->
+    <div class="row">
+        
+        <div class="col-md-12 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <form >
+                    <div class="pay-type-group">
+                        <div id="payment">
+                            <div class="panel-heading clearfix">
+                                <i class="icon-calendar"></i>
+                                <h3 class="panel-title">支付方式</h3>
+                            </div>
+                            <div class="pay-type-cont">
+                                <div class="type-list">
+                                    <ul>
+                                        
+                                        <li>
+                                            <input type="radio" name="payradio" data-form-bank="" checked="checked" date-form-enumpaymenttype="TenScanPay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '微信支付']);">
+                                            <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/WePayLogo.jpg" alt="" width="132" height="38" class="payment-pic hander_forpay">
+                                        </li>
+                                        
+                                        <li>
+                                            <input type="radio" id="radioOnAlipay" name="payradio" data-form-bank="" data-form-value="http://www.tujia.com/PaytoAlipay/Send/" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '支付宝']);">
+                                            <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/Alipaynew.png" alt="" width="132" height="38" class="payment-pic hander_forpay">
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                                
+                                <div class="bank-list" id="payment">
+                                    <ul class="clearfix" id="paytype">
+                                        
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio6" data-form-bank="CMB" data-form-value="/PaytoAlipay/Send?bank=CMB" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '招行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/CMB_OUT.gif" alt="招商银行">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio5" data-form-bank="ICBCB2C" data-form-value="/PaytoAlipay/Send?bank=ICBCB2C" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '工行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/ICBC_OUT.gif" alt="中国工商银行 ">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio8" data-form-bank="ABC" data-form-value="/PaytoAlipay/Send?bank=ABC" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '农行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/ABC_OUT.gif" alt="中国农业银行">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio7" data-form-bank="CCB" data-form-value="/PaytoAlipay/Send?bank=CCB" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '建行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/CCB_OUT.gif" alt="中国建设银行 ">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio4" data-form-bank="BOCB2C" data-form-value="/PaytoAlipay/Send?bank=BOCB2C" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '中国银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/BOC_OUT.gif" alt="中国银行">
+                                            </label>
+                                        </li>
+                                        
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio12" data-form-bank="SDB" data-form-value="/PaytoAlipay/Send?bank=SDB" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '深圳发展银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/SDB_OUT.gif" alt="深圳发展银行 ">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio11" data-form-bank="SPDB" data-form-value="/PaytoAlipay/Send?bank=SPDB" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '浦发银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/SPDB_OUT.gif" alt="上海浦东发展银行">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio13" data-form-bank="CMBC" data-form-value="/PaytoAlipay/Send?bank=CMBC" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '民生银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/CMBC_OUT.gif" alt="中国民生银行">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio15" data-form-bank="CIB" data-form-value="/PaytoAlipay/Send?bank=CIB" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '兴业银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/CIB_OUT.gif" alt="兴业银行">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio16" data-form-bank="SPABANK" data-form-value="/PaytoAlipay/Send?bank=SPABANK" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '平安银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/SPABANK_OUT.gif" alt=" 平安银行">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio17" data-form-bank="GDB" data-form-value="/PaytoAlipay/Send?bank=GDB" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '广东发展银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/GDB_OUT.gif" alt="广东发展银行">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio19" data-form-bank="POSTGC" data-form-value="/PaytoAlipay/Send?bank=POSTGC" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '邮政储蓄银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/PSBC_OUT.gif" alt=" 中国邮政储蓄银行">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio18" data-form-bank="HZCBB2C" data-form-value="/PaytoAlipay/Send?bank=HZCBB2C" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '杭州银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/HZCB_OUT.gif" alt=" 杭州银行 ">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio20" data-form-bank="NBBANK" data-form-value="/PaytoAlipay/Send?bank=NBBANK" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '宁波银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/NBBANK_OUT.gif" alt=" 宁波银行 ">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio21" data-form-bank="BJRCB" data-form-value="/PaytoAlipay/Send?bank=BJRCB" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '北京农商银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/BJRCB_OUT.gif" alt=" 北京农村商业银行 ">
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="">
+                                                <input type="radio" name="payradio" id="Radio22" data-form-bank="FDB" data-form-value="/PaytoAlipay/Send?bank=FDB" date-form-enumpaymenttype="Alipay" onclick="_gaq.push(['_trackEvent', 'pcOrderPay', '富滇银行']);">
+                                                <img src="http://staticfile.tujia.com/PortalSite2/Images/Bank/FDB_OUT.gif" alt=" 富滇银行 ">
+                                            </label>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-cont">
+                            <p><button type="button" id="payRoomOrder" class="btn btn-primary btn-lg btn-block">立即支付</button></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="m-wrap">
+        <div class="help-cont ">
+            <div class="help-hd ">
+                <h2>支付相关帮助</h2>
+            </div>
+            <div class="help-list ">
+                <ul>
+                    <li>
+                        <h2>没有网上银行怎么付款？</h2>
+                        <p class="text-cont ">
+                            只要您有储蓄卡/信用卡，可使用“银联在线支付”进行购买，无需开通网上银行。
+                        </p>
+                    </li>
+                    <li>
+                        <h2>网上银行扣款后，订单仍显示"未付款"怎么办？</h2>
+                        <p class="text-cont ">可能是由于银行的数据没有及时传输，请您不要担心，稍后刷新页面查看。如较长时间仍显示未付款，可联系云家客服400-1234-1234为您解决。</p>
+                    </li>
+                    <li>
+                        <h2>网上银行支付失败怎么办？</h2>
+                        <p class="text-cont ">如有因网络中断或页面过期、超时、错误等问题导致支付失败，请先确认是否已经扣款，如未扣款可尝试再支付一次。您也可以联系您使用的银行或支付平台获得帮助。</p>
+                    </li>
+                    <li>
+                        <h2>取消订单，退款什么时候到账？</h2>
+                        <p class="text-cont ">支付宝退款1-2个工作日到账；网银/信用卡2到7个工作日到账。</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="order.js"></script>
+</html>

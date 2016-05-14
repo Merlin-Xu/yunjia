@@ -1,0 +1,44 @@
+@background:#565a5c;
+.container{
+& .row label{
+top: 10px
+}
+}
+.navbar-brand {padding:0px 10px;height :20px}
+.nav>li>a{padding:0px 10px; color: #fff;}
+.navbar-default .navbar-nav>li>a {color: #fff;}
+.affix-top,.affix{
+position: static;
+}
+.navbar{min-height: 20px;background: #565a5c;border: none;}
+@media (min-width: 979px) {
+#sidebar.affix-top {
+position: static;
+margin-top:30px;
+width:350px;
+}
+
+#sidebar{
+	& .row>div{
+		min-height: 50px;
+		line-height: 50px;
+		padding:0px 30px;
+		&:last-child{
+			text-align: right;
+			border-left:1px solid #060606;
+		}
+	}
+
+background: @background;
+color: #fff;
+}
+#sidebar.affix {
+position: fixed;
+top:25px;
+width:228px;
+}
+}
+#sidebar li.active {
+border:0 #eee solid;
+border-right-width:5px;
+}

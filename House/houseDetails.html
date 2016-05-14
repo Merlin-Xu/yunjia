@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet/less" type="text/css" href="house.less" />
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+    less = {
+    env: "development", // or "production"
+    async: false,       // load imports async
+    fileAsync: false,   // load imports async when in a page under
+    // a file protocol
+    poll: 1000,         // when in watch mode, time in ms between polls
+    functions: {},      // user functions, keyed by name
+    dumpLineNumbers: "all", // "comment" or "mediaQuery" or "all"
+    relativeUrls: false,// whether to adjust url's to be relative
+    // if false, url's are already relative to the
+    // entry less file
+    rootpath: ":/"// a path to add on to the start of every url
+    //resource
+    };
+    /* activate sidebar */
+    </script>
+    <script src="/less.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    less.watch();
+    </script>
+  </head>
+  <body>
+    <<!-- div class="nav">
+    <div class="container">
+      <ul class="pull-left">
+        <li><a href="#">Name</a></li>
+        <li><a href="#">Browse</a></li>
+      </ul>
+      <ul class="pull-right">
+        <li><a href="#">注册</a></li>
+        <li><a href="#">登录</a></li>
+        <li><a href="#">帮助中心</a></li>
+      </ul>
+    </div>
+  </div> -->
+  
+  <!-- <div class="jumbotron">
+    <div class="container">
+      <h1>Find a place to stay.</h1>
+      <p>Rent from people in over 34,000 cities and 192 countries.</p>
+      <a href="#">Learn More</a>
+    </div>
+  </div> -->
+  <nav class="navbar navbar-default navbar-fixed-top" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">注册</a>
+      </div>
+      <nav class="collapse navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="#sec">登录</a>
+          </li>
+          <li>
+            <a href="#sec">帮助中心</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="http://goo.gl/04j7Nn" alt="Chania">
+        <div class="carousel-caption">
+          <h3>Chania</h3>
+          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="http://goo.gl/04j7Nn" alt="Chania">
+        <div class="carousel-caption">
+          <h3>Chania</h3>
+          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="http://goo.gl/04j7Nn" alt="Flower">
+        <div class="carousel-caption">
+          <h3>Flowers</h3>
+          <p>Beatiful flowers in Kolymbari, Crete.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="http://goo.gl/04j7Nn" alt="Flower">
+        <div class="carousel-caption">
+          <h3>Flowers</h3>
+          <p>Beatiful flowers in Kolymbari, Crete.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <!--main-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="neighborhood-guides">
+          <!-- <div class="container"> -->
+          <h2>三亚途家大东海两室经典园景双卧套房</h2>
+          <p>地址：大东海 金茂海景花园 [ 近大东海旅游区 ] </p>
+          <div class="row">
+            <div class="col-md-4 col-sm-4">
+              <div class="thumbnail" onclick="window.open('/House/houseDetails.html','_self')">
+                <img src="http://goo.gl/0sX3jq" >
+              </div>
+              <div class="thumbnail">
+                <img src="http://goo.gl/an2HXY" >
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="thumbnail">
+                <img src="http://goo.gl/Av1pac" >
+              </div>
+              <div class="thumbnail">
+                <img src="http://goo.gl/vw43v1" >
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="thumbnail">
+                <img src="http://goo.gl/0Kd7UO" >
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="learn-more ">
+          <div class="row">
+            <div class="col-md-4 col-sm-4">
+              <h3>房屋描述</h3>
+              <p>★得天独厚的地理位置！
+                房间所属小区位于大东海旅游区，周边自然环境优美，地理位置得天独厚。海湾的沙滩洁白松软细柔，海面风平浪静，海水湛蓝清澈，优良的天然海水浴场，是众多游客游玩的首选地。<br>
+              ★小区毗邻鹿回头风景区，步行5分钟就能来到大东海海水浴场，游泳踏浪极其方便。公寓提供电视机、洗衣机、精品卫浴，配有24小时热水和高速WIFI，厨房可以做饭，无论商旅出行还是短期居住，都会让您感受到回家一般的温馨舒适。</p>
+              <p><a href="#">查看更多</a></p>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <h3>设施配套</h3>
+              <p>
+              电视 冰箱 洗衣机 空调 毛巾 牙具 拖鞋 洗发水/沐浴露 电吹风 无线网络 电热水壶 打扫工具 晾衣架</p>
+              <p><a href="#">查看更多</a></p>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <h3>入住须知</h3>
+              <p>三亚途家斯维登度假公寓（大东海）精选中高端度假公寓、海景楼房、特色房屋。房间格局丰富，配套设施高档齐全。 1、住宿不含早餐。 2、房屋清洁温馨提示：每住满3天，第四天白天免费打扫一次，进行日常清洁，并更换床上用品、巾类等。入住期间如有额外打扫需求请联系前台。 3、门店开伙收费标准为60元/天（一室东南亚风格海景公寓除外）；小区泳池收费标准为20元/人。 公寓支持刷银联卡。</p>
+              <p><a href="#">查看更多</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--right-->
+      <div class="col-md-3" id="leftCol">
+        <div class="nav nav-stacked" id="sidebar">
+          
+            <div class="row">
+              <div class="col-md-6">763¥</div> 
+              <div class="col-md-6">每晚</div> 
+            </div>
+            <form class="form-inline" role="form">
+            <div class="form-group">
+    <div class="input-group input-daterange">
+    <input type="text" class="form-control" value="2012-04-05">
+    <span class="input-group-addon">to</span>
+    <input type="text" class="form-control" value="2012-04-19">
+</div>
+  </div>
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-12 col-sm-10">
+      <button type="submit" class="btn btn-default">申请预订</button>
+    </div>
+  </div>
+          </form>
+        </div>
+        </div><!--/right-->
+        
+        <!--right-->
+      </div>
+    </div>
+    <script type="text/javascript">
+    $('#sidebar').affix({
+    offset: {
+    top: 500
+    }
+    });
+    /* activate scrollspy menu */
+    var $body   = $(document.body);
+    var navHeight = $('.navbar').outerHeight(true) + 10;
+    $body.scrollspy({
+    target: '#leftCol',
+    offset: navHeight
+    });    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+    "path" : "../",
+    "outputFilename" : "$1.css",
+    "fileToCompileMap" : [
+          {
+              "path": "../House/",
+              "fileToCompile" : "../House/house.less"
+          },
+          {
+              "path": "../Order/",
+              "fileToCompile" : "../Order/order.less"
+          }
+    ]
+}

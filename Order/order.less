@@ -1,0 +1,213 @@
+body
+{
+    padding: 100px 50px;
+}
+div.checkbox i
+{
+    color: red ;
+}
+.pay-type-group .pay-type-cont
+{
+    & li
+    {
+        float: left;
+
+        width: 140px;
+        margin: 20px 0 0 30px;
+    }
+    & .type-list,
+    & .bank-list
+    {
+        overflow: hidden;
+
+        margin-right: 28px;
+        padding-bottom: 30px;
+
+        border-bottom: 1px dashed #ddd;
+    }
+}
+.status-cont,
+.help-cont
+{
+    overflow: hidden;
+
+    padding: 20px 30px;
+
+    border: 1px solid #ddd;
+    background-color: #fff;
+    .help-list li .text-cont
+    {
+        font-size: 12px;
+
+        color: #666;
+    }
+}
+
+.btn-cont
+{
+    margin-top: 20px;
+}
+.status-cont
+{
+    & .success-box .icon-status
+    {
+        background-position: 0 0;
+    }
+    & .order-status
+    {
+        & .info-box
+        {
+            margin-left: 74px;
+        }
+        .icon-status
+        {
+            display: block;
+            float: left;
+            overflow: hidden;
+
+            width: 60px;
+            height: 60px;
+
+            background: url(../../Images/icon-status.png) no-repeat;
+        }
+    }
+}
+#paytype.clearfix
+{
+    height: auto;
+}
+.m-step
+{
+    margin-top: 0;
+    margin-left: -15px;
+    & li
+    {
+        position: relative;
+        z-index: 9;
+
+        float: left;
+
+        text-align: center;
+        & .s-num
+        {
+            font-size: 14px;
+            line-height: 20px;
+
+            position: relative;
+            z-index: 9;
+
+            width: 20px;
+            height: 20px;
+
+            color: #fff;
+            background: url(../Images/icon-radius-step.png) no-repeat -21px 0;
+        }
+    }
+    & .cols3 li
+    {
+        width: 33.3%;
+    }
+}
+.m-step-no1 .step1:after,
+.m-step-no2 .step2:after,
+.m-step-no3 .step3:after,
+.m-step-no4 .step4:after,
+.m-step-no2 .step1:after,
+.m-step-no2 .step2:after,
+.m-step-no3 .step1:after,
+.m-step-no3 .step2:after,
+.m-step-no3 .step3:after,
+.m-step-no4 .step1:after,
+.m-step-no4 .step2:after,
+.m-step-no4 .step3:after,
+.m-step-no4 .step4:after
+{
+    background-color: #32A2E3;
+}
+.m-step li:after,
+.m-step:after
+{
+    position: absolute;
+    top: 8px;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+    padding-left: 15px;
+
+    content: '';
+
+    background-color: #ccc;
+}
+.m-step-no1 .step1 .s-num,
+.m-step-no2 .step2 .s-num,
+.m-step-no3 .step3 .s-num,
+.m-step-no4 .step4 .s-num,
+.m-step-no2 .step1 .s-num,
+.m-step-no2 .step2 .s-num,
+.m-step-no3 .step1 .s-num,
+.m-step-no3 .step2 .s-num,
+.m-step-no3 .step3 .s-num,
+.m-step-no4 .step1 .s-num,
+.m-step-no4 .step2 .s-num,
+.m-step-no4 .step3 .s-num,
+.m-step-no4 .step4 .s-num
+{
+    background-position: 0 0;
+}
+.m-step li .s-num,
+.m-step li .s-text
+{
+    display: block;
+
+    margin: 0 auto;
+}
+.m-step-no1 .step1 .s-text,
+.m-step-no2 .step2 .s-text,
+.m-step-no3 .step3 .s-text,
+.m-step-no4 .step4 .s-text,
+.m-step-no2 .step1 .s-text,
+.m-step-no2 .step2 .s-text,
+.m-step-no3 .step1 .s-text,
+.m-step-no3 .step2 .s-text,
+.m-step-no3 .step3 .s-text,
+.m-step-no4 .step1 .s-text,
+.m-step-no4 .step2 .s-text,
+.m-step-no4 .step3 .s-text,
+.m-step-no4 .step4 .s-text
+{
+    color: #32A2E3;
+}
+.m-step li .s-text
+{
+    font-size: 14px;
+
+    margin-top: 8px;
+
+    color: #999;
+}
+.m-step li .s-num{
+	background: #081E56;
+    border-radius: 30px;
+    display: block;
+
+    margin: 0 auto;
+	}
+.m-step li .s-text
+{
+    display: block;
+
+    margin: 0 auto;
+}
+.order-number {
+	font-size: 12px;
+	    color: #32A2E3;
+}
+.date-box i,.week-box i,.booking-info i,.room-number i,.order-pay i{
+	color:#32A2E3;
+}
+.orede-info-cont {
+	padding-top: 12px;
+    margin-top: 30px;
+    border-top: 1px dashed #ddd;
+}
