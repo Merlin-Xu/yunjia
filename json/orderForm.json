@@ -7,10 +7,8 @@
 	IsInvoices:"Y",
 	InvoiceName:"aaa",
 	InvoicesReceiver:"aaaaa",
-	UserDetails:{
-		UserName:"小嘻嘻",
-		UserMobile:"158472761234",
-		UserMail:"xuwenfei886@gmail.com",
-	}
+    CustomerName: "xiaoxixi",
+    CustomerMobile: "158472761234",
+    CustomerEmail: "xuwenfei886@gmail.com",
 
 }
