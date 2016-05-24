@@ -10,7 +10,7 @@ method: "POST",
 url: "//",
 dataType: "jsonp",
 data: { ChekinDate: "John", CheckoutDate: "Boston" ,PeopleCount:"",IsInvoices:"",OrderUserPhone:"",OrderDiscount:"",OrderDeposit:"",HouseID:"",OrderUserID:"",OrderUserName:"",OrderUserMail:""}
-});
+})
 .done(function( msg ) {
 alert( "Data Saved: " + msg );
 });
